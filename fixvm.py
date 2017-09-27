@@ -47,6 +47,7 @@ def vmISOK():
         if 'vmx' or 'svm' in open('/proc/cpuinfo').read():
             return True
     else:
+        print(" Your Machine is not compatible with Virtualization... ")
         return False
 
 
@@ -55,6 +56,7 @@ def vmwareInstalled():
     if os.path.exists("/usr/bin/vmware"):
         return True
     else:
+        print("VMWare is not installed...")
         return False
 
 
@@ -66,6 +68,8 @@ def vmwareFix():
         print(" Installing Dependencies ...")
         for pkg in dependencies:
             cmd = subprocess.Popen('dnf install -y {}'.format(pkg), shell=True, stdout=subprocess.PIPE)
+
+        print(" Manipulating your system files ...")
         # Copying Necessary Liberaries
         os.system('cp -r /usr/lib/vmware-installer/2.1.0/lib/lib/libexpat.so.0 /usr/lib/vmware/lib')
         os.rename('/usr/lib/vmware/lib/libz.so.1/libz.so.1', '/usr/lib/vmware/lib/libz.so.1/libz.so.1.backup')
@@ -89,6 +93,7 @@ def vmwareFix():
             pass
         copy2('/usr/lib/vmware/modules/source/vmmon-only/vmmon.ko', os.path.join('/lib/modules/', kernel_version, 'misc'))
         copy2('/usr/lib/vmware/modules/source/vmnet-only/vmnet.ko', os.path.join('/lib/modules/', kernel_version, 'misc/'))
+        print(" Building VMWare modules ...")
         # Recompiling VMWARE modules
         os.system('depmod -a')
         print("""
