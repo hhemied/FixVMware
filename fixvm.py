@@ -53,7 +53,7 @@ def vmISOK():
 
 # Checking whether Vmware installed or not [tested with VMWare Workstation]
 def vmwareInstalled():
-    if os.path.exists("/usr/bin/vmware"):
+    if os.path.exists("/usr/bin/vmware") or os.path.exists("/usr/bin/vmplayer"):
         return True
     else:
         print("VMWare is not installed...")
