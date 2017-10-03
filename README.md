@@ -1,6 +1,6 @@
 # FixVMware
-Updated tool to fix incompatibilities between Fedora systems and VMWare
-Tested on VMware-workstation and VMPlayer
+* Updated tool to fix incompatibilities between Fedora systems and VMWare
+* Tested on VMware-workstation and VMPlayer
 
 ## Notes:
 
