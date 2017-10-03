@@ -3,6 +3,7 @@
 """
 Created on Mon Mar 10 2017
 @author: hhemied
+Version : 0.6
 """
 
 import os
