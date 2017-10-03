@@ -93,7 +93,7 @@ def vmwareFix():
         except FileExistsError:
             pass
         copy2('/usr/lib/vmware/modules/source/vmmon-only/vmmon.ko', os.path.join('/lib/modules/', kernel_version, 'misc'))
-        copy2('/usr/lib/vmware/modules/source/vmnet-only/vmnet.ko', os.path.join('/lib/modules/', kernel_version, 'misc/'))
+        copy2('/usr/lib/vmware/modules/source/vmnet-only/vmnet.ko', os.path.join('/lib/modules/', kernel_version, 'misc'))
         print(" Building VMWare modules ...")
         # Recompiling VMWARE modules
         os.system('depmod -a')
