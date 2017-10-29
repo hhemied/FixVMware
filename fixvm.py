@@ -92,7 +92,9 @@ def vmwareFix():
         # Contine if the directory exist
         except FileExistsError:
             if os.path.exists(os.path.join('/lib/modules/', kernel_version, 'misc', '/usr/lib/vmware/modules/source/vmmon-only/vmmon.ko')):
-                    os.remove(os.path.join('/lib/modules/', kernel_version, 'misc', '/usr/lib/vmware/modules/source/vmmon-only/vmmon.ko'))
+                os.remove(os.path.join('/lib/modules/', kernel_version, 'misc', '/usr/lib/vmware/modules/source/vmmon-only/vmmon.ko'))
+            if os.path.exists(os.path.join('/lib/modules/', kernel_version, 'misc', '/usr/lib/vmware/modules/source/vmnet-only/vmnet.ko')):
+                os.remove(os.path.join('/lib/modules/', kernel_version, 'misc', '/usr/lib/vmware/modules/source/vmnet-only/vmnet.ko'))
             else:
                 pass
 
